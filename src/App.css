@@ -19,6 +19,14 @@ a {
 header > div {
   background-color: var(--eye-color);
 }
+
+#title_logo {
+  flex-direction: row;
+}
+
+#menu-icon {
+  display: none;
+}
 #title {
   font-size: 3.2em;
   line-height: 1.1;
@@ -70,9 +78,17 @@ li a:hover {
     object-fit: contain;
   }
 
-  #title_logo {
-    flex-direction: column;
-    gap: 0;
+  #title_logo > a {
+    flex-flow: row-reverse;
+    margin-left: 40px;
+  }
+
+  #logo {
+    height: 50px;
+    width: auto;
+  }
+  #menu-icon {
+    display: block;
   }
 
   #title {

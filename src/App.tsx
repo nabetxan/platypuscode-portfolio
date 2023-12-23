@@ -1,3 +1,5 @@
+import MenuIcon from "@mui/icons-material/Menu";
+import { IconButton } from "@mui/material";
 import "./App.css";
 import logo from "./img/logo.png";
 import manyPlatypus from "./img/many-platypus-without-background.png";
@@ -6,19 +8,28 @@ function App() {
   return (
     <div id="container" className="">
       <header className="sticky top-0 z-10 shadow-md">
-        <div
-          id="title_logo"
-          className="flex flex-row gap-3 items-center px-8 py-3"
-        >
-          <a href="https://blog.platypuscode.com/" target="_blank">
+        <div id="title_logo" className="flex flex-row gap-3 items-center">
+          <IconButton
+            id="menu-icon"
+            className="sticky top-0 left-3 z-10"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <a
+            href="https://blog.platypuscode.com/"
+            target="_blank"
+            className="flex flex-row gap-3 items-center px-8 py-3"
+          >
             <img
               src={logo}
               id="logo"
               className="object-contain"
               alt="Platypus Code logo"
             />
+
+            <h1 id="title">Platypus Code</h1>
           </a>
-          <h1 id="title">Platypus Code</h1>
         </div>
         <div>
           <nav>
