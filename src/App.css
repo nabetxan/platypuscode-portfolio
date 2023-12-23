@@ -27,6 +27,32 @@ header > div {
 #menu-icon {
   display: none;
 }
+
+#dropdown-menu {
+  z-index: 20;
+  position: fixed;
+  top: 80px;
+  left: 2px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+#dropdown-menu > ul > li {
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  background-color: var(--lighter-color);
+  color: var(--font-color);
+  padding: 10px;
+  margin-bottom: 1px;
+  width: 100px;
+}
+
+#dropdown-menu > ul :hover {
+  background-color: var(--bill-color);
+  font-size: 1.2rem;
+}
+
 #title {
   font-size: 3.2em;
   line-height: 1.1;

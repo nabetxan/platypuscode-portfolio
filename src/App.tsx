@@ -1,10 +1,31 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import logo from "./img/logo.png";
 import manyPlatypus from "./img/many-platypus-without-background.png";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const handleIsMenuOpen = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
   return (
     <div id="container" className="">
       <header className="sticky top-0 z-10 shadow-md">
@@ -13,9 +34,27 @@ function App() {
             id="menu-icon"
             className="sticky top-0 left-3 z-10"
             aria-label="menu"
+            onClick={handleIsMenuOpen}
           >
             <MenuIcon />
           </IconButton>
+          <div ref={dropdownRef}>
+            {isMenuOpen && (
+              <div id="dropdown-menu">
+                <ul>
+                  <li>
+                    <a href="">Portfolio</a>
+                  </li>
+                  <li>
+                    <a href="">Blog</a>
+                  </li>
+                  <li>
+                    <a href="">About</a>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
           <a
             href="https://blog.platypuscode.com/"
             target="_blank"
