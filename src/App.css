@@ -1,42 +1,98 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+#container {
+  width: 100%;
+  color: var(--font-color);
+  font-size: 0.9rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* headerとsectionには、横幅のサイズを指定するためのwrapper
+という名前の共通クラスを指定している */
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 100px auto;
+  padding: 0 4%;
+  text-align: center;
+}
+header > div {
+  background-color: var(--eye-color);
+}
+#title {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#mainvisual {
+  max-width: 100%;
+}
+#manyPlatypus {
+  height: 300px;
+  max-width: 1920px;
+  background-color: var(--white);
+  border-radius: 1.5rem;
+}
+
+nav > ul > li {
+  font-size: 1.3rem;
+}
+
+li a:hover {
+  opacity: 0.7;
+}
+
+.section-title {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 60px;
+  border-bottom: solid 1px #383e45;
+}
+
+#portfolio > ul {
+  display: flex;
+  justify-content: space-between;
+}
+.portfolio-item {
+  width: 32%;
+}
+#footer {
+  font-size: 0.5rem;
+  padding: 10px 0;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 600px) {
+  #mainvisual img {
+    width: calc(100vw - 10px);
+    height: auto;
+    object-fit: contain;
   }
-  to {
-    transform: rotate(360deg);
+
+  #title_logo {
+    flex-direction: column;
+    gap: 0;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  #title {
+    font-size: 1.5rem;
   }
-}
 
-.card {
-  padding: 2em;
-}
+  nav {
+    display: none;
+  }
 
-.read-the-docs {
-  color: #888;
+  #portfolio > ul {
+    flex-direction: column;
+  }
+  .portfolio-item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  #about-text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
