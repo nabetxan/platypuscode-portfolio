@@ -1,44 +1,27 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import logo from "./img/logo.png";
 import manyPlatypus from "./img/many-platypus-without-background.png";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  const handleIsMenuOpen = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(e.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleOutsideClick);
-    return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, []);
-
   return (
-    <div id="container" className="">
+    <div id="container" onClick={() => isMenuOpen && setIsMenuOpen(false)}>
       <header className="sticky top-0 z-10 shadow-md">
         <div id="title_logo" className="flex flex-row gap-3 items-center">
           <IconButton
             id="menu-icon"
             className="sticky top-0 left-3 z-10"
             aria-label="menu"
-            onClick={handleIsMenuOpen}
+            onClick={() => {
+              setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
+            }}
           >
             <MenuIcon />
           </IconButton>
-          <div ref={dropdownRef}>
+          <div>
             {isMenuOpen && (
               <div id="dropdown-menu">
                 <ul>

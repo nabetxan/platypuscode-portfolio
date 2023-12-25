@@ -17,7 +17,7 @@ a {
   text-align: center;
 }
 header > div {
-  background-color: var(--eye-color);
+  background-color: var(--beige);
 }
 
 #title_logo {
@@ -41,15 +41,15 @@ header > div {
 #dropdown-menu > ul > li {
   font-size: 1.1rem;
   border-radius: 0.5rem;
-  background-color: var(--lighter-color);
+  background-color: var(--dark-beige);
   color: var(--font-color);
   padding: 10px;
   margin-bottom: 1px;
-  width: 100px;
+  width: 150px;
 }
 
 #dropdown-menu > ul :hover {
-  background-color: var(--bill-color);
+  background-color: var(--yellow);
   font-size: 1.2rem;
 }
 
@@ -92,7 +92,7 @@ li a:hover {
   width: 32%;
 }
 #footer {
-  font-size: 0.5rem;
+  font-size: 1rem;
   padding: 10px 0;
   text-align: center;
 }

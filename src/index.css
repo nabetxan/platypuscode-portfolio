@@ -1,15 +1,15 @@
 :root {
-  --bill-color: #ffa62b;
-  --darker-color: #16697a;
-  --base-color: #489fb5;
-  --lighter-color: #82c0cc;
-  --eye-color: #ede7e3;
+  --yellow: #ffa62b;
+  --darker-blue: #16697a;
+  --main-blue: #489fb5;
+  --lighter-blue: #82c0cc;
+  --beige: #ede7e3;
+  --dark-beige: #cebeb3;
   --font-color: #383e45;
   --white: rgb(240, 240, 241);
 }
 
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 }
@@ -21,7 +21,7 @@
 
 html {
   font-size: 100%;
-  background-color: var(--eye-color);
+  background-color: var(--beige);
 }
 
 @tailwind base;
