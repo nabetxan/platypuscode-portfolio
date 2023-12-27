@@ -4,10 +4,6 @@
   font-size: 0.9rem;
 }
 
-a {
-  text-decoration: none;
-}
-
 /* headerとsectionには、横幅のサイズを指定するためのwrapper
 という名前の共通クラスを指定している */
 .wrapper {
@@ -22,6 +18,7 @@ header > div {
 
 #title_logo {
   flex-direction: row;
+  justify-content: center;
 }
 
 #menu-icon {
@@ -56,11 +53,13 @@ header > div {
 #title {
   font-size: 3.2em;
   line-height: 1.1;
+  min-width: 160px;
 }
 
 #mainvisual {
   max-width: 100%;
 }
+
 #manyPlatypus {
   height: 300px;
   max-width: 1920px;
@@ -70,6 +69,10 @@ header > div {
 
 nav > ul > li {
   font-size: 1.3rem;
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 10px;
+  text-decoration-color: var(--lighter-blue);
 }
 
 li a:hover {
@@ -98,10 +101,18 @@ li a:hover {
 }
 
 @media screen and (max-width: 600px) {
+  main,
+  #container {
+    min-width: 350px;
+  }
   #mainvisual img {
     width: calc(100vw - 10px);
+    min-width: 350px;
     height: auto;
     object-fit: contain;
+  }
+  #title_logo {
+    min-width: 350px;
   }
 
   #title_logo > a {
@@ -114,7 +125,9 @@ li a:hover {
     width: auto;
   }
   #menu-icon {
-    display: block;
+    display: flex;
+    position: fixed;
+    margin-top: 17px;
   }
 
   #title {

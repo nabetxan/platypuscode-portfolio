@@ -1,16 +1,16 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
 import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 import logo from "./img/logo.png";
-import manyPlatypus from "./img/many-platypus-without-background.png";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div id="container" onClick={() => isMenuOpen && setIsMenuOpen(false)}>
       <header className="sticky top-0 z-10 shadow-md">
-        <div id="title_logo" className="flex flex-row gap-3 items-center">
+        <div id="title_logo" className="flex flex-row items-center">
           <IconButton
             id="menu-icon"
             className="sticky top-0 left-3 z-10"
@@ -26,96 +26,48 @@ function App() {
               <div id="dropdown-menu">
                 <ul>
                   <li>
-                    <a href="">Portfolio</a>
+                    <Link to="">Home</Link>
                   </li>
                   <li>
-                    <a href="">Blog</a>
+                    <Link to="portfolio">Portfolio</Link>
                   </li>
                   <li>
-                    <a href="">About</a>
+                    <Link to="about">About</Link>
                   </li>
                 </ul>
               </div>
             )}
           </div>
-          <a
-            href="https://blog.platypuscode.com/"
-            target="_blank"
-            className="flex flex-row gap-3 items-center px-8 py-3"
-          >
-            <img
-              src={logo}
-              id="logo"
-              className="object-contain"
-              alt="Platypus Code logo"
-            />
-
-            <h1 id="title">Platypus Code</h1>
-          </a>
+          <Link to="">
+            <div className="flex flex-row gap-3 items-center px-8 py-3">
+              <img
+                src={logo}
+                id="logo"
+                className="object-contain"
+                alt="Platypus Code logo"
+              />
+              <h1 id="title">Platypus Code</h1>
+            </div>
+          </Link>
         </div>
         <div>
           <nav>
             <ul className="flex flex-row gap-10 justify-center">
               <li className="p-3">
-                <a href="https://blog.platypuscode.com/" target="_blank">
-                  Portfolio
-                </a>
+                <Link to="">Home</Link>
               </li>
               <li className="p-3">
-                <a href="https://blog.platypuscode.com/" target="_blank">
-                  Blog
-                </a>
+                <Link to="portfolio">Portfolio</Link>
               </li>
               <li className="p-3">
-                <a href="https://blog.platypuscode.com/about/" target="_blank">
-                  About
-                </a>
+                <Link to="about">About</Link>
               </li>
             </ul>
           </nav>
         </div>
       </header>
       <main>
-        <div className="p-8">
-          <div id="mainvisual" className="flex flex-col items-center">
-            <img
-              src={manyPlatypus}
-              id="manyPlatypus"
-              alt="many Platypus in a box"
-              className="my-5 p-3"
-            />
-          </div>
-          <section id="portfolio" className="wrapper">
-            <h2 className="section-title">Portfolio</h2>
-
-            <ul>
-              <li className="portfolio-item">
-                <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-                <h3 className="content-title">タイトルタイトル</h3>
-                <p>テキストテキストテキスト</p>
-              </li>
-              <li className="portfolio-item">
-                <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-                <h3 className="content-title">タイトルタイトル</h3>
-                <p>テキストテキストテキスト</p>
-              </li>
-              <li className="portfolio-item">
-                <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-                <h3 className="content-title">タイトルタイトル</h3>
-                <p>テキストテキストテキスト</p>
-              </li>
-            </ul>
-          </section>
-          <section id="about" className="wrapper">
-            <h2 className="section-title">About</h2>
-            <div id="about-text" className="text-3xl px-10">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias,
-              nihil? Natus laborum aliquid possimus explicabo culpa a non ipsum
-              necessitatibus tempora minus fugit vel exercitationem labore,
-              maiores quasi, in sunt?
-            </div>
-          </section>
-        </div>
+        <Outlet />
       </main>
       <footer id="footer">©︎Platypus Code</footer>
     </div>
