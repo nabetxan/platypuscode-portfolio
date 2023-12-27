@@ -1,4 +1,6 @@
 import manyPlatypus from "../../img/many-platypus-without-background.png";
+import AboutPlatypusCodeSummary from "./AboutPlatypusCodeSummary";
+import PortfolioPickedUp from "./PortfolioPickedUp";
 
 const HomePage = function () {
   return (
@@ -11,35 +13,8 @@ const HomePage = function () {
           className="my-5 p-3"
         />
       </div>
-      <section id="portfolio" className="wrapper">
-        <h2 className="section-title">Portfolio</h2>
-        <ul>
-          <li className="portfolio-item">
-            <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-            <h3 className="content-title">タイトルタイトル</h3>
-            <p>テキストテキストテキスト</p>
-          </li>
-          <li className="portfolio-item">
-            <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-            <h3 className="content-title">タイトルタイトル</h3>
-            <p>テキストテキストテキスト</p>
-          </li>
-          <li className="portfolio-item">
-            <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-            <h3 className="content-title">タイトルタイトル</h3>
-            <p>テキストテキストテキスト</p>
-          </li>
-        </ul>
-      </section>
-      <section id="about" className="wrapper">
-        <h2 className="section-title">About</h2>
-        <div id="about-text" className="text-3xl px-10">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, nihil?
-          Natus laborum aliquid possimus explicabo culpa a non ipsum
-          necessitatibus tempora minus fugit vel exercitationem labore, maiores
-          quasi, in sunt?
-        </div>
-      </section>
+      <PortfolioPickedUp />
+      <AboutPlatypusCodeSummary />
     </div>
   );
 };

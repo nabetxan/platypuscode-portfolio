@@ -19,9 +19,11 @@
   margin: 0;
 }
 
+/* width: 100vw added to Prevent the Layout Shift Caused by Scrollbars */
 html {
   font-size: 100%;
   background-color: var(--beige);
+  width: 100vw;
 }
 
 @tailwind base;
