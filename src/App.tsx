@@ -1,12 +1,26 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 import logo from "./img/logo.png";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const containerWidth = document.getElementById("container")?.offsetWidth;
+      if (containerWidth && containerWidth > 600) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   return (
     <div id="container" onClick={() => isMenuOpen && setIsMenuOpen(false)}>
       <header className="sticky top-0 z-10 shadow-md">
