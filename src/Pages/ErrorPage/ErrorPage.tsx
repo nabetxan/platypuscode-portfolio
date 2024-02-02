@@ -1,7 +1,13 @@
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
+import { Button } from "@mui/material";
+import {
+  isRouteErrorResponse,
+  useNavigate,
+  useRouteError
+} from "react-router-dom";
 
 const ErrorPage = function () {
   const error = useRouteError();
+  const navigate = useNavigate();
   let errorMessage: string = "";
 
   if (isRouteErrorResponse(error)) {
@@ -18,6 +24,13 @@ const ErrorPage = function () {
       <p>
         <i>{errorMessage}</i>
       </p>
+      <Button
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        前のページに戻る
+      </Button>
     </div>
   );
 };
