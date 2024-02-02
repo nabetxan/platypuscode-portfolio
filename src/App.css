@@ -4,6 +4,10 @@
   font-size: 0.9rem;
 }
 
+main {
+  min-height: 100vh;
+}
+
 /* headerとsectionには、横幅のサイズを指定するためのwrapper
 という名前の共通クラスを指定している */
 .wrapper {
@@ -93,6 +97,9 @@ li a:hover {
 }
 .portfolio-item {
   width: 32%;
+  border: #cebeb3 2px solid;
+  padding: 5px;
+  border-radius: 5px;
 }
 #footer {
   font-size: 1rem;
@@ -149,5 +156,42 @@ li a:hover {
   #about-text {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+}
+
+.portfolio-page-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-page-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  width: 70%;
+  padding: 2rem;
+  border-width: 2px;
+  border-color: var(--dark-beige);
+  border-radius: 1rem;
+}
+
+.portfolio-page-item-img {
+  width: 400px;
+}
+
+@media screen and (max-width: 1200px) {
+  .portfolio-page-item-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: auto;
+    width: 90%;
+    padding: 1.5rem;
+    align-items: center;
+  }
+  .portfolio-page-item-img {
+    width: 300px;
   }
 }

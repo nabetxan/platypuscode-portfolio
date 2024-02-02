@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import manyPlatypus from "../../img/many-platypus-without-background.png";
+import { projects } from "../../Routes/consts";
 
 const PortfolioPickedUp = function () {
   return (
@@ -9,21 +9,19 @@ const PortfolioPickedUp = function () {
           <Link to="portfolio">Portfolio</Link>
         </h2>
         <ul>
-          <li className="portfolio-item">
-            <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-            <h3 className="content-title">タイトルタイトル</h3>
-            <p>テキストテキストテキスト</p>
-          </li>
-          <li className="portfolio-item">
-            <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-            <h3 className="content-title">タイトルタイトル</h3>
-            <p>テキストテキストテキスト</p>
-          </li>
-          <li className="portfolio-item">
-            <img src={manyPlatypus} alt="テキストテキストテキスト"></img>
-            <h3 className="content-title">タイトルタイトル</h3>
-            <p>テキストテキストテキスト</p>
-          </li>
+          {projects.map((p) => (
+            <li className="portfolio-item" key={p.projectName}>
+              <Link to={`portfolio/${p.projectId}`}>
+                <img
+                  src={p.img}
+                  alt={p.projectName}
+                  className="object-cover h-[300px]"
+                ></img>
+                <h3 className="content-title text-xl my-4">{p.projectName}</h3>
+                <p className="truncate">{p.description}</p>
+              </Link>
+            </li>
+          ))}
         </ul>
       </section>
     </div>
