@@ -1,8 +1,9 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { IconButton } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "./App.css";
+import { menuPages } from "./Routes/consts";
 import logo from "./img/logo.png";
 
 function App() {
@@ -39,15 +40,25 @@ function App() {
             {isMenuOpen && (
               <div id="dropdown-menu">
                 <ul>
-                  <li>
-                    <Link to="">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="portfolio">Portfolio</Link>
-                  </li>
-                  <li>
-                    <Link to="about">About</Link>
-                  </li>
+                  {menuPages.map((menu) => {
+                    return (
+                      <NavLink
+                        to={menu.src}
+                        style={({ isActive }) => {
+                          if (isActive) {
+                            return {
+                              textDecoration: "underline",
+                              textDecorationThickness: "4px",
+                              textUnderlineOffset: "10px",
+                              textDecorationColor: "var(--lighter-blue)"
+                            };
+                          } else return;
+                        }}
+                      >
+                        <li>{menu.page}</li>
+                      </NavLink>
+                    );
+                  })}
                 </ul>
               </div>
             )}
@@ -66,16 +77,21 @@ function App() {
         </div>
         <div>
           <nav>
-            <ul className="flex flex-row gap-10 justify-center">
-              <li className="p-3">
-                <Link to="">Home</Link>
-              </li>
-              <li className="p-3">
-                <Link to="portfolio">Portfolio</Link>
-              </li>
-              <li className="p-3">
-                <Link to="about">About</Link>
-              </li>
+            <ul className="flex flex-row gap-10 justify-center rounded-md">
+              {menuPages.map((menu) => {
+                return (
+                  <NavLink
+                    to={menu.src}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? "#cebeb3" : undefined,
+                      borderTopLeftRadius: "12px",
+                      borderTopRightRadius: "12px"
+                    })}
+                  >
+                    <li className="p-3">{menu.page}</li>
+                  </NavLink>
+                );
+              })}
             </ul>
           </nav>
         </div>

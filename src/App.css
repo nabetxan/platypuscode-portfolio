@@ -35,7 +35,7 @@ header > div {
   text-align: left;
 }
 
-#dropdown-menu > ul > li {
+#dropdown-menu li {
   font-size: 1.1rem;
   border-radius: 0.5rem;
   background-color: var(--dark-beige);
@@ -45,7 +45,7 @@ header > div {
   width: 150px;
 }
 
-#dropdown-menu > ul :hover {
+#dropdown-menu ul :hover {
   background-color: var(--yellow);
   font-size: 1.2rem;
 }
@@ -67,7 +67,7 @@ header > div {
   border-radius: 1.5rem;
 }
 
-nav > ul > li {
+nav ul li {
   font-size: 1.3rem;
   text-decoration: underline;
   text-decoration-thickness: 4px;
