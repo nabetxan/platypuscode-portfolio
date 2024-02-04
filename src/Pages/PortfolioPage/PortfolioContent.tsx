@@ -6,12 +6,18 @@ const PortfolioContent: React.FC = function () {
   const project = projects.find((p) => p.projectId.toString() === projectId);
 
   return (
-    <div className="h-screen">
-      <iframe
-        src={project?.githubPage ?? project?.src ?? "/"}
-        style={{ width: "100%", height: "100%", border: "none" }}
-      ></iframe>
-    </div>
+    <>
+      {project ? (
+        <div className="h-screen">
+          <iframe
+            src={project.githubPage ?? project.src}
+            style={{ width: "100%", height: "100%", border: "none" }}
+          ></iframe>
+        </div>
+      ) : (
+        <div>No such project..</div>
+      )}
+    </>
   );
 };
 
