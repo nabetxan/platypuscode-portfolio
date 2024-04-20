@@ -8,14 +8,14 @@ const PortfolioPage = function () {
       <div className="portfolio-page-item-list">
         {projects.map((p) => (
           <div className="portfolio-page-item-container">
-            <Link to={`${p.projectId}`}>
+            <Link to={`${p.slug}`}>
               <img
                 src={p.img}
                 className="portfolio-page-item-img object-fit"
               ></img>
             </Link>
             <div className="w-[100%]">
-              <Link to={`${p.projectId}`}>
+              <Link to={`${p.slug}`}>
                 <div className="text-start mb-4">
                   Title:{" "}
                   <span className="text-3xl ml-4 tracking-tighter">

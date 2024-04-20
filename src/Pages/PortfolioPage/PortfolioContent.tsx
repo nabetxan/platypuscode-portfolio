@@ -1,12 +1,24 @@
+import { Button } from "@mui/material";
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { projects } from "../../Routes/consts";
 
 const PortfolioContent: React.FC = function () {
-  const { projectId } = useParams();
-  const project = projects.find((p) => p.projectId.toString() === projectId);
-
+  const { slug } = useParams();
+  const project = projects.find((p) => p.slug === slug);
+  const navigate = useNavigate();
   return (
     <>
+      <div className="absolute top-2 left-4">
+        <Button
+          onClick={() => {
+            navigate(-1);
+          }}
+          sx={{ color: "black" }}
+        >
+          戻る
+        </Button>
+      </div>
       {project ? (
         <div className="h-screen">
           <iframe

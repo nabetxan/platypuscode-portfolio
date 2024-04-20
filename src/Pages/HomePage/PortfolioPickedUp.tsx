@@ -11,14 +11,16 @@ const PortfolioPickedUp = function () {
         <ul>
           {projects.map((p) => (
             <li className="portfolio-item" key={p.projectName}>
-              <Link to={`portfolio/${p.projectId}`}>
+              <Link to={`portfolio/${p.slug}`}>
                 <img
                   src={p.img}
                   alt={p.projectName}
                   className="object-cover h-[300px]"
                 ></img>
-                <h3 className="content-title text-xl my-4">{p.projectName}</h3>
-                <p className="truncate">{p.description}</p>
+                <h3 className="content-title text-xl my-4 font-bold underline underline-offset-4">
+                  {p.projectName}
+                </h3>
+                <p className="h-[2.5rem] line-clamp-2">{p.description}</p>
               </Link>
             </li>
           ))}
