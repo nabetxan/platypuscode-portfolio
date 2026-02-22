@@ -6,8 +6,8 @@ const PortfolioPage = function () {
     <div>
       <div className="text-4xl my-9 h-full">Portfolio Page</div>
       <div className="portfolio-page-item-list">
-        {projects.map((p) => (
-          <div className="portfolio-page-item-container">
+        {projects.map((p, i) => (
+          <div key={i} className="portfolio-page-item-container">
             <Link to={`${p.slug}`}>
               <img
                 src={p.img}

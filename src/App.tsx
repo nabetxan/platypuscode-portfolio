@@ -40,9 +40,10 @@ function App() {
             {isMenuOpen && (
               <div id="dropdown-menu">
                 <ul>
-                  {menuPages.map((menu) => {
+                  {menuPages.map((menu, i) => {
                     return (
                       <NavLink
+                        key={i}
                         to={menu.src}
                         style={({ isActive }) => {
                           if (isActive) {
@@ -50,9 +51,9 @@ function App() {
                               textDecoration: "underline",
                               textDecorationThickness: "4px",
                               textUnderlineOffset: "10px",
-                              textDecorationColor: "var(--lighter-blue)"
+                              textDecorationColor: "var(--lighter-blue)",
                             };
-                          } else return;
+                          } else return {};
                         }}
                       >
                         <li>{menu.page}</li>
@@ -78,14 +79,15 @@ function App() {
         <div>
           <nav>
             <ul className="flex flex-row gap-10 justify-center rounded-md">
-              {menuPages.map((menu) => {
+              {menuPages.map((menu, i) => {
                 return (
                   <NavLink
+                    key={i}
                     to={menu.src}
                     style={({ isActive }) => ({
                       backgroundColor: isActive ? "#cebeb3" : undefined,
                       borderTopLeftRadius: "12px",
-                      borderTopRightRadius: "12px"
+                      borderTopRightRadius: "12px",
                     })}
                   >
                     <li className="p-3">{menu.page}</li>
