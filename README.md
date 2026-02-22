@@ -2,6 +2,8 @@
 
 ## React + TypeScript
 
+https://platypuscode-portfolio.vercel.app/
+
 Blog (only in Japanese)
 https://blog.platypuscode.com/
 
